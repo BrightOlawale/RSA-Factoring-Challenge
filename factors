@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+import sys
+
+
+def find_factors():
+    rsa_file = sys.argv[1]
+    with open(rsa_file) as rsa:
+        for num in rsa:
+            num = int(num)
+            if num % 2 == 0:
+                    print("{}={}*{}".format(num, num // 2, 2))
+                    continue
+            i = 3
+            while i < num // 2:
+                if num % i == 0:
+                    print("{}={}*{}".format(num, num // i, i))
+                    break
+                i = i + 2
+
+            if i == (num // 2) + 1:
+                print("{}={}*{}".format(num, num, 1))
+
+find_factors() 	
